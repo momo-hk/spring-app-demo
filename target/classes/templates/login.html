@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Login</title>
+		<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet" />
+		<style type="text/css">
+			body {
+				background-size: cover;
+				display: flex;
+				align-items: center;
+				height: 100vh;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-md-offset-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<strong>Login To Your Account</strong>
+						</div>
+						<div class="panel-body">
+							<form method="POST" th:action="@{/login}" class="form-signin form-horizontal">
+								<div class="alert alert-danger" th:if="${error != null}">
+									<strong th:text=${error}>Login Failed</strong>
+								</div>
+								<div class="alert alert-success" th:if="${logout != null}">
+									<strong th:text="${logout}">Logout</strong>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="input-group input-group-md">
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-user"></span>
+											</span>
+											<input type="text" class="form-control" name="username" placeholder="Enter Username"/>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="input-group input-group-md">
+											<span class="input-group-addon">
+												<span class="glyphicon glyphicon-lock"></span>
+											</span>
+											<input type="password" class="form-control" name="password" placeholder="Enter Password" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" name="remember-me" id="remember-me"/> Remember Me
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<button type="submit" class="btn btn-default btn-block">
+											<span class="glyphicon glyphicon-log-in"></span> Login
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
